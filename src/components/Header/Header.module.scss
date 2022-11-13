@@ -1,0 +1,44 @@
+.wrapper {
+    height: var(--header-height-before);
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    padding: 18px 0;
+    background-color: #ccc;
+}
+
+.container {
+    width: var(--layout-width);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pages {
+    display: flex;
+    padding: 0 8px;
+
+    .page-link {
+        font-weight: 400;
+        color: #fff;
+        letter-spacing: 0.8px;
+        padding: 0 25px;
+        font-size: 1.8rem;
+        opacity: 0.75;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
