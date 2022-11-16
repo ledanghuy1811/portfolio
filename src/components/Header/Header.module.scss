@@ -8,7 +8,7 @@
     left: 0;
 
     padding: 18px 0;
-    background-color: #ccc;
+    background-color: #000;
 }
 
 .container {
@@ -20,25 +20,38 @@
     padding: 0 12px;
 }
 
+.logo {
+    width: 140px;
+    height: 30px;
+    cursor: pointer;
+}
+
 .content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .pages {
     display: flex;
     padding: 0 8px;
+}
 
-    .page-link {
-        font-weight: 400;
-        color: #fff;
-        letter-spacing: 0.8px;
-        padding: 0 25px;
-        font-size: 1.8rem;
-        opacity: 0.75;
+.page-link {
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 0.8px;
+    padding: 0 25px;
+    font-size: 1.8rem;
+    opacity: 0.75;
 
-        &:hover {
-            opacity: 1;
-        }
+    &:hover {
+        opacity: 1;
     }
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

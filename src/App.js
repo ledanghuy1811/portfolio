@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import './App.scss'
 
 function App() {
-  return <div className="App">
+  return <div id='app' className="App">
     <Header />
     <Banner />
     <Skills />
