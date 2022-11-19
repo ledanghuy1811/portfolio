@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Header.module.scss';
 import Button from '../Button';
@@ -11,21 +13,44 @@ import NavIcon3 from '~/assets/img/nav-icon3.svg';
 
 const cx = classNames.bind(styles);
 
+const contactIcon = [
+  {
+    name: 'linked-in',
+    icon: NavIcon1,
+  },
+  {
+    name: 'facebook',
+    icon: NavIcon2,
+  },
+  {
+    name: 'instagram',
+    icon: NavIcon3,
+  },
+];
+
 const Header = () => {
-  const contactIcon = [
-    {
-      name: 'linked-in',
-      icon: NavIcon1,
-    },
-    {
-      name: 'facebook',
-      icon: NavIcon2,
-    },
-    {
-      name: 'instagram',
-      icon: NavIcon3,
-    },
-  ];
+  const [toggleMenu, setToggleMenu] = useState(false);
+
+
+  const test = (e) => {
+    console.log(e.target.innerHTML);
+  };
+
+  const handleToggleMenu = () => {
+    setToggleMenu(!toggleMenu);
+
+    const menu = document.getElementById('toggle-menu');
+
+    if (toggleMenu) {
+      menu.classList.remove(`${cx('active')}`);
+      menu.classList.add(`${cx('disabled')}`);
+      setTimeout(() => (menu.style.display = 'none'), 500);
+    } else {
+      menu.style.display = 'initial';
+      menu.classList.remove(`${cx('disabled')}`);
+      menu.classList.add(`${cx('active')}`);
+    }
+  };
 
   return (
     <header className={cx('wrapper')}>
@@ -34,8 +59,15 @@ const Header = () => {
           <img className={cx('logo')} src={Logo} alt="Logo" />
         </a>
         <div className={cx('content')}>
-          <div className={cx('pages')}>
-            <a className={cx('page-link')} href="#app">
+          <button
+            className={cx('toggle-btn', 'sm:hidden')}
+            onClick={handleToggleMenu}
+          >
+            <FontAwesomeIcon icon={faBars} />
+          </button>
+
+          <div className={cx('pages', 'hidden sm:flex')}>
+            <a className={cx('page-link')} href="#app" onClick={test}>
               Home
             </a>
             <a className={cx('page-link')} href="#skills">
@@ -45,19 +77,32 @@ const Header = () => {
               Projects
             </a>
           </div>
-          <div className={cx('contact')}>
+
+          <div className={cx('contact', 'hidden sm:flex')}>
             {contactIcon.map((icon) => (
               <Button circle key={icon.name}>
                 <img src={icon.icon} alt={icon.name} />
               </Button>
             ))}
-            <div className="ml-10">
+            <div className="hidden lg:block ml-10">
               <Button large rectangle href="#contact">
                 Let's Connect
               </Button>
             </div>
           </div>
         </div>
+      </div>
+
+      <div id="toggle-menu" className={cx('toggle-menu', 'sm:hidden')}>
+        <a className={cx('page-link')} href="#app" onClick={test}>
+          Home
+        </a>
+        <a className={cx('page-link')} href="#skills">
+          Skills
+        </a>
+        <a className={cx('page-link')} href="#project">
+          Projects
+        </a>
       </div>
     </header>
   );
