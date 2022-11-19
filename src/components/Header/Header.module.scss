@@ -1,103 +1,125 @@
 .wrapper {
+  display: flex;
+  justify-content: center;
+  height: var(--header-height-before);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 18px 0;
+  background-color: #000;
+  transition: all 0.5s ease-in-out;
+
+  &.scroll-before {
     height: var(--header-height-before);
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    padding: 18px 0;
     background-color: #000;
+  }
+
+  &.scroll-after {
+    height: var(--header-height-after);
+    background-color: #ccc;
+  }
 }
 
 .container {
-    position: relative;
-    width: var(--layout-width);
-    max-width: calc(100% - 32px);
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 12px;
+  position: relative;
+  width: var(--layout-width);
+  max-width: calc(100% - 32px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
 }
 
 .logo {
-    width: 140px;
-    height: 30px;
-    cursor: pointer;
+  width: 140px;
+  height: 30px;
+  cursor: pointer;
 }
 
 .content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .toggle-btn {
-    padding: 8px 12px;
-    color: #fff;
-    font-size: 3.2rem;
+  padding: 8px 12px;
+  color: var(--white-color);
+  font-size: 3.2rem;
 }
 
 .pages {
-    padding: 0 8px;
+  padding: 0 8px;
 }
 
 .page-link {
-    display: block;
-    font-weight: 400;
-    color: #fff;
-    letter-spacing: 0.8px;
-    padding: 8px 25px;
-    font-size: 1.8rem;
-    opacity: 0.75;
+  display: block;
+  font-weight: 400;
+  color: var(--white-color);
+  letter-spacing: 0.8px;
+  padding: 8px 25px;
+  font-size: 1.8rem;
+  opacity: 0.75;
 
-    &:hover {
-        opacity: 1;
-    }
+  &.active-link {
+    opacity: 1;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .contact {
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .toggle-menu {
-    position: absolute;
+  position: absolute;
+  top: var(--header-height-before);
+  right: 0;
+  left: 0;
+  display: none;
+  padding: 0 24px;
+  background-color: #ccc;
+  transition: all 0.5s ease-in-out;
+
+  &.menu-before {
     top: var(--header-height-before);
-    right: 0;
-    left: 0;
-    display: none;
-    padding: 0 24px;
-    background-color: #ccc;
+  }
 
-    &.active {
-        display: block;
-        animation: activeMenu 0.5s ease-in-out;
-    }
+  &.menu-after {
+    top: var(--header-height-after);
+  }
 
-    &.disabled {
-        display: block;
-        animation: disabledMenu 0.5s ease-in-out;
-    }
+  &.active {
+    display: block;
+    animation: activeMenu 0.5s ease-in-out;
+  }
+
+  &.disabled {
+    display: block;
+    animation: disabledMenu 0.5s ease-in-out;
+  }
 }
 
 @keyframes activeMenu {
-    from {
-        height: 0px;
-    }
-    to {
-        height: 130px;
-    }
+  from {
+    height: 0px;
+  }
+  to {
+    height: 130px;
+  }
 }
 
 @keyframes disabledMenu {
-    from {
-        height: 130px;
-    }
-    to {
-        height: 0px;
-    }
+  from {
+    height: 130px;
+  }
+  to {
+    height: 0px;
+  }
 }
-
-

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -30,11 +30,23 @@ const contactIcon = [
 
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
-
-
-  const test = (e) => {
-    console.log(e.target.innerHTML);
-  };
+  const [activePageLink, setActivePageLink] = useState([
+    {
+      name: 'Home',
+      active: true,
+      href: '#app',
+    },
+    {
+      name: 'Skills',
+      active: false,
+      href: '#skills',
+    },
+    {
+      name: 'Projects',
+      active: false,
+      href: '#project',
+    },
+  ]);
 
   const handleToggleMenu = () => {
     setToggleMenu(!toggleMenu);
@@ -52,8 +64,57 @@ const Header = () => {
     }
   };
 
+  const handleActivePage = (e) => {
+    setActivePageLink((prev) => {
+      for (let item of prev) {
+        if (item.name === e.target.innerHTML) item.active = true;
+        else item.active = false;
+      }
+
+      return [...prev];
+    });
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.getElementById('header');
+      const menu = document.getElementById('toggle-menu');
+
+      if (window.scrollY > 50) {
+        header.classList.remove(`${cx('scroll-before')}`);
+        header.classList.add(`${cx('scroll-after')}`);
+        menu.classList.remove(`${cx('menu-before')}`);
+        menu.classList.add(`${cx('menu-after')}`);
+      } else {
+        header.classList.remove(`${cx('scroll-after')}`);
+        header.classList.add(`${cx('scroll-before')}`);
+        menu.classList.remove(`${cx('menu-after')}`);
+        menu.classList.add(`${cx('menu-before')}`);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const menu = document.getElementById('toggle-menu');
+
+      if (window.innerWidth > 640) {
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'initial';
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <header className={cx('wrapper')}>
+    <header id="header" className={cx('wrapper')}>
       <div className={cx('container')}>
         <a href="/">
           <img className={cx('logo')} src={Logo} alt="Logo" />
@@ -67,15 +128,16 @@ const Header = () => {
           </button>
 
           <div className={cx('pages', 'hidden sm:flex')}>
-            <a className={cx('page-link')} href="#app" onClick={test}>
-              Home
-            </a>
-            <a className={cx('page-link')} href="#skills">
-              Skills
-            </a>
-            <a className={cx('page-link')} href="#project">
-              Projects
-            </a>
+            {activePageLink.map((pageLink) => (
+              <a
+                key={pageLink.name}
+                className={cx('page-link', { 'active-link': pageLink.active })}
+                href={pageLink.href}
+                onClick={handleActivePage}
+              >
+                {pageLink.name}
+              </a>
+            ))}
           </div>
 
           <div className={cx('contact', 'hidden sm:flex')}>
@@ -94,15 +156,16 @@ const Header = () => {
       </div>
 
       <div id="toggle-menu" className={cx('toggle-menu', 'sm:hidden')}>
-        <a className={cx('page-link')} href="#app" onClick={test}>
-          Home
-        </a>
-        <a className={cx('page-link')} href="#skills">
-          Skills
-        </a>
-        <a className={cx('page-link')} href="#project">
-          Projects
-        </a>
+        {activePageLink.map((pageLink) => (
+          <a
+            key={pageLink.name}
+            className={cx('page-link')}
+            href={pageLink.href}
+            onClick={handleToggleMenu}
+          >
+            {pageLink.name}
+          </a>
+        ))}
       </div>
     </header>
   );
