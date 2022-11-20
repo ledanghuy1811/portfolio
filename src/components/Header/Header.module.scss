@@ -7,17 +7,15 @@
   right: 0;
   left: 0;
   padding: 18px 0;
-  background-color: #000;
   transition: all 0.5s ease-in-out;
 
   &.scroll-before {
     height: var(--header-height-before);
-    background-color: #000;
   }
 
   &.scroll-after {
     height: var(--header-height-after);
-    background-color: #ccc;
+    background-color: var(--header-scroll-color);
   }
 }
 
@@ -79,20 +77,23 @@
 
 .toggle-menu {
   position: absolute;
+  height: var(--toggle-menu-height);
   top: var(--header-height-before);
   right: 0;
   left: 0;
   display: none;
   padding: 0 24px;
-  background-color: #ccc;
+  transform-origin: top;
   transition: all 0.5s ease-in-out;
 
   &.menu-before {
     top: var(--header-height-before);
+    background-color: transparent;
   }
 
   &.menu-after {
     top: var(--header-height-after);
+    background-color: var(--header-scroll-color);
   }
 
   &.active {
@@ -108,18 +109,22 @@
 
 @keyframes activeMenu {
   from {
-    height: 0px;
+    opacity: 0;
+    transform: scaleY(0);
   }
   to {
-    height: 130px;
+    opacity: 1;
+    transform: scaleY(1);
   }
 }
 
 @keyframes disabledMenu {
   from {
-    height: 130px;
+    opacity: 1;
+    transform: scaleY(1);
   }
   to {
-    height: 0px;
+    opacity: 0;
+    transform: scaleY(0);
   }
 }

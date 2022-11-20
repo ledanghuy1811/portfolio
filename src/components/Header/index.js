@@ -104,14 +104,14 @@ const Header = () => {
       if (window.innerWidth > 640) {
         menu.style.display = 'none';
       } else {
-        menu.style.display = 'initial';
+        if (toggleMenu) menu.style.display = 'initial';
       }
     };
 
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [toggleMenu]);
 
   return (
     <header id="header" className={cx('wrapper')}>
