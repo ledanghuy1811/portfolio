@@ -1,6 +1,142 @@
 .wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 180px 0 120px 0;
     background: url(../..//assets/img/banner-bg.png);
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.container {
+    width: var(--layout-width);
+    max-width: calc(100% - 32px);
+    display: flex;
+    justify-content: center;
+    color: var(--white-color);
+}
+
+.info {
+    padding: 32px 20px;
+}
+
+.welcome {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-bottom: 24px;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.08rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: var(--second-color);
+}
+
+.name {
+    margin-bottom: 20px;
+    font-size: 6.5rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    line-height: 1.2;
+}
+
+.description {
+    margin-bottom: 40px;
+    padding: 0 32px 0 0;
+    color: #b8b8b8;
+    font-size: 1.8rem;
+    letter-spacing: 0.8px;
+    line-height: 1.5;
+}
+
+.connect {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px 12px 0;
+
+    &:hover > .connect-icon {
+        transform: translateX(12px);
+    }
+}
+
+.connect-text {
+    margin-right: 12px;
+    color: var(--white-color);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+}
+
+.connect-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    border: 1px solid var(--white-color);
+    border-radius: 50%;
+    transition: all 0.3s linear;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 0;
+}
+
+.banner-img {
+    width: 94%;
+    animation: scrollTopDown 3s linear infinite;
+}
+
+@keyframes scrollTopDown {
+    0% {
+        transform: translateY(-20px);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .wrapper {
+        padding: 140px 0 70px 0;
+    }
+
+    .image {
+        align-items: flex-start;
+    }
+
+    .banner-img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 639px) {
+    .wrapper {
+        padding: 140px 0 70px 0;    
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .name {
+        text-align: center;
+    }
+
+    .description {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .connect {
+        padding-left: 6px;
+    }
 }

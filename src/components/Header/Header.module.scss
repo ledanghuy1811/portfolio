@@ -6,6 +6,7 @@
   top: 0;
   right: 0;
   left: 0;
+  z-index: 1;
   padding: 18px 0;
   transition: all 0.5s ease-in-out;
 
@@ -126,5 +127,19 @@
   to {
     opacity: 0;
     transform: scaleY(0);
+  }
+}
+
+@media (max-width: 639px) {
+  .wrapper {
+    background-color: var(--header-scroll-color);
+  }
+
+  .toggle-menu {
+    background-color: var(--header-scroll-color);
+
+    &.menu-before{
+      background-color: var(--header-scroll-color);
+    }
   }
 }
