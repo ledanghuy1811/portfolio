@@ -35,7 +35,7 @@ const Banner = () => {
     setRotateText(updateText);
 
     if (isDelete) {
-      setTimer((prev) => prev / 2);
+      setTimer((prev) => (prev + 50) / 2);
     }
 
     if (!isDelete && updateText === fullText) {

@@ -1,0 +1,39 @@
+.wrapper {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    padding: 0 0 50px 0;
+    background-color: #121212;
+}
+
+.container {
+    position: absolute;
+    top: -15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: calc(var(--layout-width) - 24px);
+    max-width: calc(100% - 46px);
+    height: 100%;
+
+    padding: 46px 64px;
+    background-color: #151515;
+    border-radius: 64px;
+}
+
+.content {
+
+}
+
+.color-shape {
+    position: absolute;
+    top: 18%;
+    bottom: 0;
+    left: 0;
+    width: 40%;
+    z-index: -1;
+}
