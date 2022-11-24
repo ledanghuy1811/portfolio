@@ -24,3 +24,23 @@
     line-height: 1.5em;
     color: #888888;
 }
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .wrapper {
+        width: 100%;
+    }
+
+    .description {
+        padding: 0;
+    }
+}
+
+@media (max-width: 639px) {
+    .wrapper {
+        width: 100%;
+    }
+
+    .description {
+        padding: 0;
+    }
+}

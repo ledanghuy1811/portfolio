@@ -17,7 +17,7 @@
     justify-content: center;
 
     width: calc(var(--layout-width) - 24px);
-    max-width: calc(100% - 46px);
+    max-width: calc(100% - 100px);
     height: 100%;
 
     padding: 46px 64px;
@@ -26,7 +26,12 @@
 }
 
 .content {
-
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 46px;
+    padding: 0 36px;
 }
 
 .color-shape {
@@ -36,4 +41,32 @@
     left: 0;
     width: 40%;
     z-index: -1;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .container {
+        top: -10%;
+        height: 96%;
+    }
+    .color-shape {
+        width: 80%;
+        top: 15%;
+    }
+}
+
+@media (max-width: 639px) {
+    .container {
+        top: -12%;
+        max-width: calc(100% - 36px);
+        padding: 24px;
+    }
+
+    .content {
+        padding: 0 16px;
+    }
+
+    .color-shape {
+        width: 100%;
+        top: 30%;
+    }
 }
