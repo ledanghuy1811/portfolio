@@ -14,15 +14,15 @@ const cx = classNames.bind(styles);
 
 const skillInfo = [
   {
-    title: 'HTML/CSS',
+    title: 'HTML',
+    imageUrl: percentageImage1,
+  },
+  {
+    title: 'CSS',
     imageUrl: percentageImage1,
   },
   {
     title: 'Javascript',
-    imageUrl: percentageImage1,
-  },
-  {
-    title: 'React JS',
     imageUrl: percentageImage2,
   },
   {
