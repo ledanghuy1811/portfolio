@@ -147,7 +147,7 @@ const Header = () => {
               </Button>
             ))}
             <div className="hidden lg:block ml-10">
-              <Button large rectangle href="#contact">
+              <Button large white rectangle href="#contact">
                 Let's Connect
               </Button>
             </div>

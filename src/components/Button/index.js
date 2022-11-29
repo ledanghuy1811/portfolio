@@ -10,6 +10,8 @@ const Button = ({
   primary = false,
   circle = false,
   rectangle = false,
+  white = false,
+  black = false,
   small = false,
   large = false,
   className,
@@ -17,7 +19,7 @@ const Button = ({
   ...passProps
 }) => {
   let Comp = 'button';
-  const props = {...passProps}
+  const props = { ...passProps };
   if (href) {
     Comp = 'a';
     props.href = href;
@@ -28,13 +30,15 @@ const Button = ({
     primary,
     circle,
     rectangle,
+    white,
+    black,
     small,
     large,
   });
 
   return (
     <Comp className={classes} {...props}>
-      {children}
+      <span>{children}</span>
     </Comp>
   );
 };
