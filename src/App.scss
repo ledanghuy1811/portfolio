@@ -24,13 +24,18 @@
 :root {
 	--header-height-before: 114px;
 	--header-height-after: 78px;
-	--header-scroll-color: #121212;
 	--toggle-menu-height: 130px;
 	--layout-width: 1320px;
-	--font-family: 'Centra', sans-serif;
+	--max-layout-width-lg: 100px;
+	--max-layout-width-sm: 36px;
+
+	--header-scroll-color: #121212;
 	--primary-color: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
 	--second-color: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
 	--white-color: #fff;
+	--border-color: rgba(255, 255, 255, 0.5);
+
+	--font-family: 'Centra', sans-serif;
 }	
 
 * {
@@ -42,7 +47,7 @@
 html {
     font-size: 62.5%;
 	scroll-behavior: smooth;
-	scroll-padding-top: var(--header-height-after);
+	scroll-padding-top: calc(var(--header-height-after) + 70px);
 	-webkit-tap-highlight-color: transparent;
 }
 

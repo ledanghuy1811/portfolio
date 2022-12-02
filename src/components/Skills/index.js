@@ -15,8 +15,8 @@ const Skills = () => {
       <div className={cx('container')}>
         <HeaderContent
           title="Skills"
-          description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-          Lorem Ipsum has been the industry's standard dummy text."
+          description="I start learning front-end skills in the third year of university 
+          and here is what I have today"
         />
         <div className={cx('content')}>
           <SliderComponent />

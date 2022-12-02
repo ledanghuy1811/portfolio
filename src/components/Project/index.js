@@ -116,9 +116,9 @@ const Project = () => {
       <div className={cx('container')}>
         <HeaderContent
           title="Projects"
-          description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-            when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+          description="Here is some projects that I have done while studying. I start fisrt with 
+          simple HTML and CSS projects. Then I responsive my projects and go on with javascript
+          and finnaly doing projects with React JS!"
         />
         <div className={cx('content')}>
           <div className={cx('list', 'grid grid-cols-3')}>

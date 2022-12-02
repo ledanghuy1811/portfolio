@@ -17,14 +17,17 @@ const contactIcon = [
   {
     name: 'linked-in',
     icon: NavIcon1,
+    href: 'https://www.linkedin.com/in/l%C3%AA-huy-87762b20b/',
   },
   {
     name: 'facebook',
     icon: NavIcon2,
+    href: 'https://www.facebook.com/profile.php?id=100009922054055',
   },
   {
     name: 'instagram',
     icon: NavIcon3,
+    href: 'https://www.instagram.com/hii_iamhuy/',
   },
 ];
 
@@ -142,7 +145,7 @@ const Header = () => {
 
           <div className={cx('contact', 'hidden sm:flex')}>
             {contactIcon.map((icon) => (
-              <Button circle key={icon.name}>
+              <Button href={icon.href} target='_blank' circle key={icon.name}>
                 <img src={icon.icon} alt={icon.name} />
               </Button>
             ))}

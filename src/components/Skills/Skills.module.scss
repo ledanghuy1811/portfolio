@@ -1,72 +1,72 @@
 .wrapper {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    height: 500px;
-    padding: 0 0 50px 0;
-    background-color: #121212;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  padding: 0 0 50px 0;
+  background-color: var(--header-scroll-color);
 }
 
 .container {
-    position: absolute;
-    top: -15%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  position: absolute;
+  top: -15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-    width: var(--layout-width);
-    max-width: calc(100% - 100px);
-    height: 100%;
+  width: var(--layout-width);
+  max-width: calc(100% - 100px);
+  height: 100%;
 
-    padding: 46px 64px;
-    background-color: #151515;
-    border-radius: 64px;
+  padding: 46px 64px;
+  background-color: #151515;
+  border-radius: 64px;
 }
 
 .content {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 46px;
-    padding: 0 36px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 46px;
+  padding: 0 36px;
 }
 
 .color-shape {
-    position: absolute;
-    top: 18%;
-    bottom: 0;
-    left: 0;
-    width: 40%;
-    z-index: -1;
+  position: absolute;
+  top: 18%;
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  z-index: -1;
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
-    .container {
-        top: -10%;
-        height: 96%;
-    }
-    .color-shape {
-        width: 80%;
-        top: 15%;
-    }
+  .container {
+    top: -10%;
+    height: 96%;
+  }
+  .color-shape {
+    width: 80%;
+    top: 15%;
+  }
 }
 
 @media (max-width: 639px) {
-    .container {
-        top: -12%;
-        max-width: calc(100% - 36px);
-        padding: 24px;
-    }
+  .container {
+    top: -12%;
+    max-width: calc(100% - var(--max-layout-width-sm));
+    padding: 24px;
+  }
 
-    .content {
-        padding: 0 16px;
-    }
+  .content {
+    padding: 0 16px;
+  }
 
-    .color-shape {
-        width: 100%;
-        top: 30%;
-    }
+  .color-shape {
+    width: 100%;
+    top: 30%;
+  }
 }
