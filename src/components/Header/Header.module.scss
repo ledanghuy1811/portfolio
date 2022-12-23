@@ -83,6 +83,9 @@
   right: 0;
   left: 0;
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 0 24px;
   transform-origin: top;
   transition: all 0.5s ease-in-out;
@@ -98,12 +101,12 @@
   }
 
   &.active {
-    display: block;
+    display: flex;
     animation: activeMenu 0.5s ease-in-out;
   }
 
   &.disabled {
-    display: block;
+    display: flex;
     animation: disabledMenu 0.5s ease-in-out;
   }
 }

@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   justify-content: center;
+  height: 120vh;
   padding: 180px 0 100px 0;
   background: url(../..//assets/img/banner-bg.png);
   background-position: top center;
@@ -127,7 +128,7 @@
 @media (max-width: 639px) {
   .wrapper {
     padding: 140px 0 70px 0;
-    height: 200vh;
+    height: 170vh;
   }
 
   .info {
